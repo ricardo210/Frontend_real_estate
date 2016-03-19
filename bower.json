@@ -1,0 +1,24 @@
+{
+  "name": "Frontend Real Estate",
+  "authors": [
+    "Nelson Cardenas <nelsonjc.01@gmail.com>"
+  ],
+  "description": "Frontend proyect progra 4",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
