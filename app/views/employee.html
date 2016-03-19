@@ -1,0 +1,126 @@
+<div ng-controller="employeeController">
+   <div id="container-main">
+      <h1>EMPLEADOS</h1>
+      <br>
+      <div class="accordion-container">
+         <p class="accordion-titulo">Crear anunciante<span class="toggle-icon"></span></p>
+         <div class="accordion-content">
+            <table class="add">
+               <tr>
+                  <th class="td_thEmployee thEmployee">Código</th>
+                  <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
+               </tr>
+               <tr>
+                  <th class="td_thEmployee thEmployee">Nombre de usuario</th>
+                  <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+               </tr>
+               <tr>
+                  <th class="td_thEmployee thEmployee">Contraseña</th>
+                  <td class="td_thEmployee tdEmployee"><input type="password" name="password"></td>
+               </tr>
+               <tr>
+                  <th class="td_thEmployee thEmployee">Nombre</th>
+                  <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+               </tr>
+               <tr>
+                  <th class="td_thEmployee thEmployee">Teléfono</th>
+                  <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+               </tr>
+               <tr>
+                  <th class="td_thEmployee thEmployee">Celular</th>
+                  <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+               </tr>
+               <tr>
+                  <th class="td_thEmployee thEmployee">Email</th>
+                  <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+               </tr>
+               <tr>
+                  <th class="td_thEmployee thEmployee">Dirección</th>
+                  <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+               </tr>
+               <tr>
+                  <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/user_add.png"/></td>
+               </tr>
+            </table>
+         </div>
+      </div>
+      <div class="accordion-container">
+         <p class="accordion-titulo">Modificar o eliminar anunciante<span class="toggle-icon"></span></p>
+         <div class="accordion-content">
+            <table>
+               <tr>
+                  <th>Código</th>
+                  <th>Nombre de usuario</th>
+                  <th>Nombre</th>
+                  <th>Dirección</th>
+                  <th>Teléfono</th>
+                  <th>Celular</th>
+                  <th>Email</th>
+               </tr>
+               <tr>
+                  <th>{{}}</th>
+                  <th>{{}}</th>
+                  <th>{{}}</th>
+                  <th>{{}}</th>
+                  <th>{{}}</th>
+                  <th>{{}}</th>
+                  <th>{{}}</th>
+                  <th><a href="#editUser" data-toggle="modal"><img class="img2" src="../images/icons/user_edit.png"/></a></th>
+                  <th><img class="img2" src="../images/icons/user_delete.png"/></th>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </div>
+   <!--POP UP-->
+   <div class="modal fade" id="#editUser">
+      <div class= "modal-dialog">
+         <div class="container" >
+            <div class="row">
+               <form class="form-signin mg-btm">
+                  <h3 class="heading-desc">
+                     Modificar anunciantes
+                  </h3>
+                  <table class="add">
+                     <tr>
+                        <th class="td_thEmployee thEmployee">Código</th>
+                        <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
+                     </tr>
+                     <tr>
+                        <th class="td_thEmployee thEmployee">Nombre de usuario</th>
+                        <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+                     </tr>
+                     <tr>
+                        <th class="td_thEmployee thEmployee">Contraseña</th>
+                        <td class="td_thEmployee tdEmployee"><input type="password" name="password"></td>
+                     </tr>
+                     <tr>
+                        <th class="td_thEmployee thEmployee">Nombre</th>
+                        <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     </tr>
+                     <tr>
+                        <th class="td_thEmployee thEmployee">Teléfono</th>
+                        <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     </tr>
+                     <tr>
+                        <th class="td_thEmployee thEmployee">Celular</th>
+                        <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     </tr>
+                     <tr>
+                        <th class="td_thEmployee thEmployee">Email</th>
+                        <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     </tr>
+                     <tr>
+                        <th class="td_thEmployee thEmployee">Dirección</th>
+                        <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     </tr>
+                     <tr>
+                        <td class="td_thEmployee tdEmployee" colspan="2"><a href="#editUser" data-dismiss = "modal"><img src="../images/icons/user_edit.png"/></a></td>
+                     </tr>
+                  </table>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

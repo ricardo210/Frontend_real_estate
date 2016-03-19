@@ -21,8 +21,8 @@ angular.module('RealEstate.Controllers')
           $scope.user = {};
           if ($sessionStorage.currentUser.scope[0]==="admin") {
             $scope.goAdmin();
-          }else if($sessionStorage.currentUser.scope[0]==="empleado"){
-            $state.go('');
+          }else if($sessionStorage.currentUser.scope[0]==="employee"){
+            $scope.goEmployee();
           }
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
@@ -32,4 +32,9 @@ angular.module('RealEstate.Controllers')
       $scope.goAdmin =function(){
         $state.go("admin")
       }
+
+      $scope.goEmployee =function(){
+        $state.go("employee")
+      }
+
   }]);

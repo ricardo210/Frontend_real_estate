@@ -20,5 +20,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 					url: '/logIn',
 					controller: 'logInController',
 					templateUrl: '/views/logIn.html'
+				})
+				.state('employee',{
+					url: '/employee',
+					controller: 'employeeController',
+					templateUrl: '/views/employee.html'
 				});
 }])
