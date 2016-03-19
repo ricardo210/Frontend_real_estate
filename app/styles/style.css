@@ -1,0 +1,191 @@
+
+.principalPageImgSize{
+  height: 300px;
+  width: 600px;
+}
+
+.principalPageLogoSize{
+  height: 64px;
+  width: 200px;
+}
+
+.principalPageSocialNetworks{
+  height: 50px;
+  width: 50px;
+}
+
+.form-signin {
+  max-width: 400px;
+  display:block;
+  background-color: #f7f7f7;
+  -moz-box-shadow: 0 0 3px 3px #888;
+    -webkit-box-shadow: 0 0 3px 3px #888;
+	box-shadow: 0 0 3px 3px #888;
+  border-radius:2px;
+}
+.main{
+	padding: 38px;
+}
+.social-box{
+  margin: 0 auto;
+  padding: 38px;
+  border-bottom:1px #ccc solid;
+}
+.social-box a{
+  font-weight:bold;
+  font-size:18px;
+  padding:8px;
+}
+.social-box a i{
+  font-weight:bold;
+  font-size:20px;
+}
+.heading-desc{
+	font-size:20px;
+	font-weight:bold;
+	padding:38px 38px 0px 38px;
+
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: 20px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: 0px;
+  border-radius: 5px;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 0px;
+  border-radius: 5px;
+}
+.input-group {
+    margin-bottom: 15px;
+}
+.login-footer{
+	background:#f0f0f0;
+	margin: 0 auto;
+	border-top: 1px solid #dadada;
+	padding:20px;
+}
+.login-footer .left-section a{
+	font-weight:bold;
+	line-height:19px;
+}
+.mg-btm{
+	margin-bottom:20px;
+}
+
+
+img { max-width: 100%; }
+
+::-moz-selection { background: #de615e; color: #fff; text-shadow: none; }
+::selection { background: #de615e; color: #fff; text-shadow: none; }
+
+.inner-bg {
+    padding: 100px 0 170px 0;
+}
+
+.top-content .text {
+	color: #fff;
+}
+
+.top-content .text h1 { color: #fff; }
+
+.top-content .description {
+	margin: 20px 0 10px 0;
+}
+
+.top-content .description p { opacity: 0.8; }
+
+.top-content .description a {
+	color: #fff;
+}
+.top-content .description a:hover,
+.top-content .description a:focus { border-bottom: 1px dotted #fff; }
+
+.form-box {
+	margin-top: 35px;
+}
+
+.form-top {
+	overflow: hidden;
+	padding: 0 25px 15px 25px;
+	background: #444;
+	background: rgba(0, 0, 0, 0.35);
+	-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;
+	text-align: left;
+}
+
+.form-top-left {
+	float: left;
+	width: 75%;
+	padding-top: 25px;
+}
+
+.form-top-left h3 { margin-top: 0; color: #fff; }
+.form-top-left p { opacity: 0.8; color: #fff; }
+
+.form-top-right {
+	float: left;
+	width: 25%;
+	padding-top: 5px;
+	font-size: 66px;
+	color: #fff;
+	line-height: 100px;
+	text-align: right;
+	opacity: 0.3;
+}
+
+.form-bottom {
+	padding: 25px 25px 30px 25px;
+	background: #444;
+	background: rgba(0, 0, 0, 0.3);
+	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+	text-align: left;
+}
+
+.form-bottom form textarea {
+	height: 100px;
+}
+
+.form-bottom form button.btn {
+	width: 100%;
+}
+
+.form-bottom form .input-error {
+	border-color: #de615e;
+}
+
+.btn-ncr1{
+  background-color: #4CAF50;
+  font-size: 20px;
+  color: white;
+}
+
+.btn-ncr2{
+  background-color: #008CBA;
+  color: white;
+}
+
+.bgImg{
+  background-image: url("/assets/img/backgrounds/edificio.jpg");
+}
+
+.njc-bc{
+  background-color: black;
+}

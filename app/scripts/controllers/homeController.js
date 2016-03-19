@@ -1,5 +1,6 @@
 angular.module('RealEstate.Controllers')
-  .controller('HomeController', ['$scope', 'HomeService', '$sessionStorage', function ($scope, HomeService, $sessionStorage) {
-    	
-
+.controller('homeController', ['$scope', 'homeService', '$sessionStorage', '$state',function ($scope, homeService, $sessionStorage, $state) {
+  $scope.changeStateLogIn = function () {
+    $state.go('logIn');
+ }
   }]);

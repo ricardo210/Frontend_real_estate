@@ -9,6 +9,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('home', {
             url: '/home',
             templateUrl: '/views/home.html',
-            controller: 'HomeController'
-        });
+            controller: 'homeController'
+        })
+				.state('admin',{
+					url: '/admin',
+					controller: 'adminController',
+					templateUrl: '/views/admin.html'
+				})
+				.state('logIn',{
+					url: '/logIn',
+					controller: 'logInController',
+					templateUrl: '/views/logIn.html'
+				});
 }])
