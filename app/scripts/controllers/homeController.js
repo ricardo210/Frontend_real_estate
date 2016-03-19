@@ -3,4 +3,5 @@ angular.module('RealEstate.Controllers')
   $scope.changeStateLogIn = function () {
     $state.go('logIn');
  }
+ 
   }]);

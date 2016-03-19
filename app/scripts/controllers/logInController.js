@@ -6,4 +6,5 @@ angular.module('RealEstate.Controllers')
  $scope.changeStateAdmin = function () {
    $state.go('admin');
 }
+
   }]);

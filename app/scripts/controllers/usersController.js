@@ -20,7 +20,7 @@ angular.module('RealEstate.Controllers')
           $sessionStorage.currentUser = response.data;
           $scope.user = {};
           if ($sessionStorage.currentUser.scope[0]==="admin") {
-            $state.go('admin');
+            $scope.goAdmin();
           }else if($sessionStorage.currentUser.scope[0]==="empleado"){
             $state.go('');
           }
