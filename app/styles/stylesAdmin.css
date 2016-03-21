@@ -4,7 +4,7 @@ body{
 }
 
 #container-main{
-    margin: 95px auto;
+    margin: 5% auto;
     width:95%;
     min-width:320px;
     max-width:1500px;
@@ -30,14 +30,13 @@ body{
 
 .accordion-container {
     width: 100%;
-    margin: 0 0 30px;
+    margin: 0 0 50px 0px;
     clear:both;
-    box-shadow: 0px 8px 20px #A4A4A4;
 }
 
 .accordion-titulo {
     position: relative;
-  /*display: block;*/
+    display: block;
     padding: 20px;
     font-size: 24px;
     font-weight: 300;
@@ -53,24 +52,8 @@ body{
     background: #1abc9c;
 }
 
-.accordion-titulo span.toggle-icon:before {
-    content:"";
-}
-
-.accordion-titulo.open span.toggle-icon:before {
-    content:"-";
-}
-
-.accordion-titulo span.toggle-icon {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 38px;
-    font-weight:bold;
-}
-
 .accordion-content {
-    /*display: none;*/
+    display: none;
     padding: 20px;
     overflow: auto;
 }
@@ -88,7 +71,7 @@ body{
 //-------------------------------//
 
 table {
-    padding-bottom: 5px;
+    padding-bottom: 150px;
     padding-top: 150px;
     align: center;
     margin: auto;
@@ -107,16 +90,18 @@ td {
     border-top: none;
 }
 
-.img2 {
+img.img2 {
     text-align:center;
     vertical-align:middle;
     z-index: 9999;
-    height: 65px;
-    width: 65px;
+    max-height: 65px;
+    max-width: 65px;
+    cursor: pointer;
 }
 
 .add {
     margin: auto;
+    padding-bottom: 50px;
 }
 
 .td_thEmployee {
@@ -131,4 +116,12 @@ td {
 
 .tdEmployee {
     text-align: right;
+}
+
+.panelAdmin {
+    margin-bottom: 20px;
+    background-color: #ecf0f1;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
