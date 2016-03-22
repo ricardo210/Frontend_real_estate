@@ -3,5 +3,23 @@ angular.module('RealEstate.Controllers')
   $scope.changeStateLogIn = function () {
     $state.go('logIn');
  }
- 
+
+ $scope.postData = {};
+
+    $scope.postMail = function (contact) {
+      // Check form validation
+      if ($scope.contactForm.$invalid === true) {
+        return
+      }
+      // wrap all your input values in $scope.postData
+      $scope.postData = angular.copy(contact);
+
+      $http.post('/api/contact', $scope.postData)
+        .success(function(data) {
+          // Show success message
+        })
+        .error(function(data) {
+          // Show error message
+        });
+    };
   }]);
