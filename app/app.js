@@ -6,24 +6,29 @@ angular.module('RealEstate.Services', []);
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('home');
 	$stateProvider
-        .state('home', {
-            url: '/home',
-            templateUrl: '/views/home.html',
-            controller: 'homeController'
-        })
-				.state('admin',{
-					url: '/admin',
-					controller: 'adminController',
-					templateUrl: '/views/admin.html'
-				})
-				.state('logIn',{
-					url: '/logIn',
-					controller: 'logInController',
-					templateUrl: '/views/logIn.html'
-				})
-				.state('employee',{
-					url: '/employee',
-					controller: 'employeeController',
-					templateUrl: '/views/employee.html'
-				});
+	.state('home', {
+		url: '/home',
+		templateUrl: '/views/home.html',
+		controller: 'homeController'
+	})
+	.state('admin',{
+		url: '/admin',
+		controller: 'adminController',
+		templateUrl: '/views/admin.html'
+	})
+	.state('logIn',{
+		url: '/logIn',
+		controller: 'logInController',
+		templateUrl: '/views/logIn.html'
+	})
+	.state('employee',{
+		url: '/employee',
+		controller: 'employeeController',
+		templateUrl: '/views/employee.html'
+	})
+	.state('advertiser',{
+		url: '/advertiser',
+		controller: 'advertiserController',
+		templateUrl: '/views/advertiser.html'
+	});
 }])
