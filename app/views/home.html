@@ -129,16 +129,16 @@
               <!-- About Ends -->
 
               <!--Contact Starts-->
-              <div id="contact" class="spacer">
+              <div id="contact" class="spacer" novalidate>
                 <div class="container contactform center">
                   <h2 class="text-center fadeInUp">¡Comienza a anunciarte con nosotros ahora!</h2>
                   <div class="row fadeInLeftBig">
                     <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-                      <input type="text" placeholder="Nombre">
-                      <input type="text" placeholder="Correo Electrónico">
-                      <input type="text" placeholder="Número">
-                      <textarea rows="5" placeholder="Mensaje"></textarea>
-                      <button class="btn btn-primary"><i class="fa fa-paper-plane"></i> Enviar</button>
+                      <input type="text" name= "name" ng-model="contact.name" placeholder="Nombre" required>
+                      <input type="text" name="email" ng-model="contact.email" placeholder="Correo Electrónico" required>
+                      <input type="text" name ="number" ng-model="contact.nomber" placeholder="Número" required>
+                      <textarea rows="5" name ="message" ng-model="contact.message" placeholder="Mensaje" required></textarea>
+                      <button class="btn btn-primary" type = "submit" ng-click="postMail(contact)"><i class="fa fa-paper-plane"></i> Enviar</button>
                     </div>
                   </div>
                 </div>
