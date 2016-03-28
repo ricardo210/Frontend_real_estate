@@ -1,10 +1,34 @@
+<div ng-controller="UsersController">
+  <div class="topbar animated fadeInLeftBig"></div>
+
+  <!-- Header Starts -->
+  <div class="navbar-wrapper">
+    <div class="container">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
+        <div class="container">
+          <div class="navbar-header">
+            <!-- Logo Starts -->
+            <a class="navbar-brand"><img src="images/logoTemporal.png" alt="logo" class="principalPageLogoSize">{{$sessionStorage.currentUser.username}}</a>
+            <!-- #Logo Ends -->
+          </div>
+          <!-- Nav Starts -->
+          <div class="navbar-collapse  collapse">
+            <ul class="nav navbar-nav navbar-right scroll">
+              <li ><a ng-click="logout()">Cerrar Sesión</a></li>
+            </ul>
+          </div>
+          <!-- #Nav Ends -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div ng-controller="employeeController">
-
   <div id="container-main" class="container">
-
-    <h1>EMPLEADOS</h1>
     <br>
-
+    <br>
+    <br>
     <div class="panel-group" id="accordion">
 
       <div class="panel panel-default panelAdmin">
@@ -150,17 +174,13 @@
             <tr>
               <th class="td_thEmployee thEmployee">Dirección</th>
               <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
-            </tr>
-            <tr>
+              <tr>
+              </tr>
               <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/user_edit.png"/></td>
             </tr>
           </table>
         </div>
-
       </div>
-
     </div>
-
   </div>
-
 </div>
