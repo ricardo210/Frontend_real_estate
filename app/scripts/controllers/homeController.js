@@ -3,4 +3,7 @@ angular.module('RealEstate.Controllers')
   $scope.changeStateLogIn = function () {
     $state.go('logIn');
   }
+  $scope.changeStateClient = function () {
+    $state.go('client');
+  }
 }]);

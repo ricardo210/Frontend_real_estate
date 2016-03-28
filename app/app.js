@@ -8,8 +8,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	$stateProvider
 	.state('home', {
 		url: '/home',
-		templateUrl: '/views/home.html',
-		controller: 'homeController'
+		controller: 'homeController',
+		templateUrl: '/views/home.html'
 	})
 	.state('admin',{
 		url: '/admin',
@@ -30,5 +30,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		url: '/advertiser',
 		controller: 'advertiserController',
 		templateUrl: '/views/advertiser.html'
+	})
+	.state('client',{
+		url: '/client',
+		controller: 'homeController',
+		templateUrl: '/views/client.html'
 	});
 }])
