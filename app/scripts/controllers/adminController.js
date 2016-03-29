@@ -52,9 +52,6 @@ $scope.postUserA = function(){
       });
     }
 
-    $scope.change = function (item) {
-      $scope.user2=item;
-    }
 
     $scope.reloadPage = function () {
       window.location.reload(true);
