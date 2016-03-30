@@ -1,0 +1,24 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "frontend",
+  "main": "server.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "bower": "^1.7.7",
+    "gulp-debug": "^2.1.2",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-inject": "^3.0.0",
+    "hapi": "^11.1.4",
+    "inert": "^3.2.0",
+    "main-bower-files": "^2.11.1",
+    "inject": "^1.0.0-beta2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Nelson Cardenas",
+  "license": "ISC"
+}

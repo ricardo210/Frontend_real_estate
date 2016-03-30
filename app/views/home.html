@@ -1,0 +1,178 @@
+<div ng-controller="NavbarController">
+  <div class="topbar animated fadeInLeftBig"></div>
+
+  <!-- Header Starts -->
+  <div class="navbar-wrapper">
+    <div class="container">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
+        <div class="container">
+          <div class="navbar-header">
+            <!-- Logo Starts -->
+            <a class="navbar-brand" href="#home"><img src="images/logoTemporal.png" alt="logo" class="principalPageLogoSize">Bienes y Raizes logo</a>
+            <!-- #Logo Ends -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <!-- Nav Starts -->
+          <div class="navbar-collapse  collapse">
+            <ul class="nav navbar-nav navbar-right scroll">
+              <li class="active"><a href="#works">Inicio</a></li>
+              <li ><a href="#about">Nuestra Misión</a></li>
+              <li ><a href="#contact">Contactanos</a></li>
+              <li ><a href="#logIn">Iniciar Sesión</a></li>
+            </ul>
+          </div>
+          <!-- #Nav Ends -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="logIn" ng-start="changeStateLogIn()">
+</div>
+<div ng-controller="homeController">
+  <!-- works -->
+  <div id="works"  class=" clearfix grid">
+    <figure class="effect-oscar fadeIn">
+      <img src="images/portfolio/housePrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
+      <figcaption>
+        <h2>Casa</h2>
+        <p>Descripción casas<br>
+          <a href="images/portfolio/housePrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+        </figcaption>
+      </figure>
+      <figure class="effect-oscar fadeInUp">
+        <img src="images/portfolio/apartmentsPrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
+        <figcaption>
+          <h2>Apartamento</h2>
+          <p>Descripción apartamentos<br>
+            <a href="images/portfolio/apartmentsPrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+          </figcaption>
+        </figure>
+        <figure class="effect-oscar fadeInUp">
+          <img src="images/portfolio/condominiumsPrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
+          <figcaption>
+            <h2>Condominio</h2>
+            <p>Descripción condominios<br>
+              <a href="images/portfolio/condominiumsPrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+            </figcaption>
+          </figure>
+          <figure class="effect-oscar fadeInUp">
+            <img src="images/portfolio/landscapePrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
+            <figcaption>
+              <h2>Propiedad</h2>
+              <p>Descripción Propiedades<br>
+                <a href="images/portfolio/landscapePrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+              </figcaption>
+            </figure>
+            <figure class="effect-oscar fadeInUp">
+              <img src="images/portfolio/localsPrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
+              <figcaption>
+                <h2>Local</h2>
+                <p>Descripción Locales<br>
+                  <a href="images/portfolio/localsPrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+                </figcaption>
+              </figure>
+              <figure class="effect-oscar fadeInUp">
+                <img src="images/portfolio/wineriesPrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
+                <figcaption>
+                  <h2>Bodega</h2>
+                  <p>Descripción Bodegas<br>
+                    <a href="images/portfolio/wineriesPrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+                  </figcaption>
+                </figure>
+              </div>
+              <!-- works -->
+
+              <!-- Cirlce Starts -->
+              <div id="about"  class="container spacer about">
+                <h2 class="text-center fadeInUp">Nuestra Misión</h2>
+                <div class="row">
+                  <div class="col-sm-6 fadeInLeft">
+                    <h4><i class="fa fa-code"></i> Titulo 1</h4>
+                    <p>Descripción de la pagina Descripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la pagina</p>
+                  </div>
+                  <div class="col-sm-6 fadeInRight">
+                    <h4><i class="fa fa-code"></i> Titulo 2</h4>
+                    <p>Descripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la paginaDescripción de la pagina</p>
+                  </div>
+                </div>
+              </div>
+              <!-- #Cirlce Ends -->
+
+              <!-- About Starts -->
+              <div class="highlight-info">
+                <div class="overlay spacer">
+                  <div class="container">
+                    <div class="row text-center fadeInDownBig">
+                      <div class="col-sm-3 col-xs-6">
+                        <i class="fa fa-smile-o  fa-5x"></i><h4>Casas</h4>
+                      </div>
+                      <div class="col-sm-3 col-xs-6">
+                        <i class="fa fa-smile-o  fa-5x"></i><h4>Propiedades</h4>
+                      </div>
+                      <div class="col-sm-3 col-xs-6">
+                        <i class="fa fa-smile-o  fa-5x"></i><h4>Apartamentos</h4>
+                      </div>
+                      <div class="col-sm-3 col-xs-6">
+                        <i class="fa fa-smile-o fa-5x"></i><h4>Locales</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- About Ends -->
+
+              <!--Contact Starts-->
+              <div id="contact" class="spacer">
+                <div class="container contactform center">
+                  <h2 class="text-center fadeInUp">¡Comienza a anunciarte con nosotros ahora!</h2>
+                  <div class="row fadeInLeftBig">
+                    <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+                      <input type="text" placeholder="Nombre">
+                      <input type="text" placeholder="Correo Electrónico">
+                      <input type="text" placeholder="Número">
+                      <textarea rows="5" placeholder="Mensaje"></textarea>
+                      <button class="btn btn-primary"><i class="fa fa-paper-plane"></i> Enviar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Contact Ends-->
+
+              <!-- Footer Starts -->
+              <div class="footer text-center spacer">
+
+                <p class=" flipInX">
+                  <a href="https://www.facebook.com/">
+                    <i class="fa fa-facebook fa-2x"></i>
+                  </a>
+                  <a href="https://www.instagram.com/">
+                    <i class="fa fa-instagram fa-2x"></i>
+                  </a>
+                  <a href="https://www.twitter.com/nelson_cardns">
+                    <i class="fa fa-twitter fa-2x"></i>
+                  </a>
+                </p>
+                Copyright 2016 Pagina Bienes y Raíces. All rights reserved.
+              </div>
+              <!-- # Footer Ends -->
+              <a href="#works" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
+
+              <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+              <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+                <!-- The container for the modal slides -->
+                <div class="slides"></div>
+                <!-- Controls for the borderless lightbox -->
+                <h3 class="title">Title</h3>
+                <a class="prev">‹</a>
+                <a class="next">›</a>
+                <a class="close">×</a>
+                <!-- The modal dialog, which will be used to wrap the lightbox content -->
+              </div>
+            </div>
