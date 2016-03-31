@@ -5,6 +5,9 @@ angular.module('RealEstate.Controllers')
     $scope.messages = [];
     $scope.message = {};
     $scope.temp = {};
+    $scope.title = "Usuarios"
+    $scope.users = [];
+    $scope.user = {};
 
         $scope.getMessage = function(){
           employeeService.GetMessages().then(function(response){
@@ -51,6 +54,30 @@ angular.module('RealEstate.Controllers')
             $('#numberEmailHtml').val("");
             $('#messageEmailHtml').val("");
           }
+
+          $scope.postUser = function(){
+            $scope.user.scope="advertiser";
+            employeeService.PostUsers($scope.user).then(function(response){
+                alert("Posted to /Employee");
+                clearEmployee();
+              }).catch(function(err){
+                alert(err.data.error + " " + err.data.message);
+              });
+            }
+
+            clearEmployee = function(){
+              $('#idEmployeHTML').val("");
+              $('#userEmployeHTML').val("");
+              $('#passwordEmployeHTML').val("");
+              $('#nameEmployeHTML').val("");
+              $('#celEmployeHTML').val("");
+              $('#numberEmployeHTML').val("");
+              $('#emailEmployeHTML').val("");
+              $('#direccionEmployeHTML').val("");
+
+            }
+
+
       $scope.reloadPage = function () {
         window.location.reload(true);
       }
