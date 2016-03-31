@@ -41,48 +41,48 @@
       <img src="images/portfolio/housePrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
       <figcaption>
         <h2>Casa</h2>
-        <p>Descripción casas<br>
-          <a href="images/portfolio/housePrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+        <p data-toggle="modal" data-target="#editModalc" ng-click="getProperty()">Descripción casas<br>
+          <a >Busca ahora</a></p>
         </figcaption>
       </figure>
       <figure class="effect-oscar fadeInUp">
         <img src="images/portfolio/apartmentsPrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
         <figcaption>
           <h2>Apartamento</h2>
-          <p>Descripción apartamentos<br>
-            <a href="images/portfolio/apartmentsPrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+          <p data-toggle="modal" data-target="#editModala" ng-click="getProperty()">Descripción apartamentos<br>
+            <a >Busca ahora</a></p>
           </figcaption>
         </figure>
         <figure class="effect-oscar fadeInUp">
           <img src="images/portfolio/condominiumsPrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
           <figcaption>
             <h2>Condominio</h2>
-            <p>Descripción condominios<br>
-              <a href="images/portfolio/condominiumsPrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+            <p data-toggle="modal" data-target="#editModalco" ng-click="getProperty()">Descripción condominios<br>
+              <a>Busca ahora</a></p>
             </figcaption>
           </figure>
           <figure class="effect-oscar fadeInUp">
             <img src="images/portfolio/landscapePrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
             <figcaption>
               <h2>Propiedad</h2>
-              <p>Descripción Propiedades<br>
-                <a href="images/portfolio/landscapePrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+              <p data-toggle="modal" data-target="#editModalp" ng-click="getProperty()">Descripción Propiedades<br>
+                <a>Busca ahora</a></p>
               </figcaption>
             </figure>
             <figure class="effect-oscar fadeInUp">
               <img src="images/portfolio/localsPrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
               <figcaption>
                 <h2>Local</h2>
-                <p>Descripción Locales<br>
-                  <a href="images/portfolio/localsPrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+                <p data-toggle="modal" data-target="#editModall" ng-click="getProperty()">Descripción Locales<br>
+                  <a>Busca ahora</a></p>
                 </figcaption>
               </figure>
               <figure class="effect-oscar fadeInUp">
                 <img src="images/portfolio/wineriesPrincipalPage.jpg" alt="img01"/ class = "principalPageImgSize">
                 <figcaption>
                   <h2>Bodega</h2>
-                  <p>Descripción Bodegas<br>
-                    <a href="images/portfolio/wineriesPrincipalPage.jpg" title="1" data-gallery>Busca ahora</a></p>
+                  <p data-toggle="modal" data-target="#editModalb" ng-click="getProperty()">Descripción Bodegas<br>
+                    <a>Busca ahora</a></p>
                   </figcaption>
                 </figure>
               </div>
@@ -174,4 +174,196 @@
                 <a class="close">×</a>
                 <!-- The modal dialog, which will be used to wrap the lightbox content -->
               </div>
+              <div id="editModalc" class="modal fade" role="dialog">
+                 <div class="modal-dialog modal-dialog3">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                       <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">visualizar propierdades</h4>
+                       </div>
+                       <div class="modal-body">
+                          <table class="add">
+                            <tr>
+                               <th>Nombre</th>
+                               <th>Direccion</th>
+                               <th>Email</th>
+                               <th>celular</th>
+                               <th>Teléfono</th>
+                               <th>Disponible</th>
+                            </tr>
+                            <tr ng-repeat="property in properties |filterWithOr:{type:['casa']}">
+                               <th>{{property.name}}</th>
+                               <th>{{property.address}}</th>
+                               <th>{{property.email}}</th>
+                               <th>{{property.cell}}</th>
+                               <th>{{property.phone}}</th>
+                               <th>{{property.avilable}}</th>
+                            </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+
+              <div id="editModala" class="modal fade" role="dialog">
+                 <div class="modal-dialog modal-dialog3">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                       <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">visualizar propierdades</h4>
+                       </div>
+                       <div class="modal-body">
+                          <table class="add">
+                            <tr>
+                               <th>Nombre</th>
+                               <th>Direccion</th>
+                               <th>Email</th>
+                               <th>celular</th>
+                               <th>Teléfono</th>
+                               <th>Disponible</th>
+                            </tr>
+                            <tr ng-repeat="property in properties |filterWithOr:{type:['apartamento']}">
+                               <th>{{property.name}}</th>
+                               <th>{{property.address}}</th>
+                               <th>{{property.email}}</th>
+                               <th>{{property.cell}}</th>
+                               <th>{{property.phone}}</th>
+                               <th>{{property.avilable}}</th>
+                            </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+
+              <div id="editModalco" class="modal fade" role="dialog">
+                 <div class="modal-dialog modal-dialog3">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                       <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">visualizar propierdades</h4>
+                       </div>
+                       <div class="modal-body">
+                          <table class="add">
+                            <tr>
+                               <th>Nombre</th>
+                               <th>Direccion</th>
+                               <th>Email</th>
+                               <th>celular</th>
+                               <th>Teléfono</th>
+                               <th>Disponible</th>
+                            </tr>
+                            <tr ng-repeat="property in properties |filterWithOr:{type:['condominio']}">
+                               <th>{{property.name}}</th>
+                               <th>{{property.address}}</th>
+                               <th>{{property.email}}</th>
+                               <th>{{property.cell}}</th>
+                               <th>{{property.phone}}</th>
+                               <th>{{property.avilable}}</th>
+                            </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div id="editModalp" class="modal fade" role="dialog">
+                 <div class="modal-dialog modal-dialog3">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                       <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">visualizar propierdades</h4>
+                       </div>
+                       <div class="modal-body">
+                          <table class="add">
+                            <tr>
+                               <th>Nombre</th>
+                               <th>Direccion</th>
+                               <th>Email</th>
+                               <th>celular</th>
+                               <th>Teléfono</th>
+                               <th>Disponible</th>
+                            </tr>
+                            <tr ng-repeat="property in properties |filterWithOr:{type:['propiedad']}">
+                               <th>{{property.name}}</th>
+                               <th>{{property.address}}</th>
+                               <th>{{property.email}}</th>
+                               <th>{{property.cell}}</th>
+                               <th>{{property.phone}}</th>
+                               <th>{{property.avilable}}</th>
+                            </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+
+              <div id="editModall" class="modal fade" role="dialog">
+                 <div class="modal-dialog modal-dialog3">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                       <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">visualizar propierdades</h4>
+                       </div>
+                       <div class="modal-body">
+                          <table class="add">
+                            <tr>
+                               <th>Nombre</th>
+                               <th>Direccion</th>
+                               <th>Email</th>
+                               <th>celular</th>
+                               <th>Teléfono</th>
+                               <th>Disponible</th>
+                            </tr>
+                            <tr ng-repeat="property in properties |filterWithOr:{type:['local']}">
+                               <th>{{property.name}}</th>
+                               <th>{{property.address}}</th>
+                               <th>{{property.email}}</th>
+                               <th>{{property.cell}}</th>
+                               <th>{{property.phone}}</th>
+                               <th>{{property.avilable}}</th>
+                            </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+
+              <div id="editModalb" class="modal fade" role="dialog">
+                 <div class="modal-dialog modal-dialog3">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                       <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">visualizar propierdades</h4>
+                       </div>
+                       <div class="modal-body">
+                          <table class="add">
+                            <tr>
+                               <th>Nombre</th>
+                               <th>Direccion</th>
+                               <th>Email</th>
+                               <th>celular</th>
+                               <th>Teléfono</th>
+                               <th>Disponible</th>
+                            </tr>
+                            <tr ng-repeat="property in properties |filterWithOr:{type:['bodegas']}">
+                               <th>{{property.name}}</th>
+                               <th>{{property.address}}</th>
+                               <th>{{property.email}}</th>
+                               <th>{{property.cell}}</th>
+                               <th>{{property.phone}}</th>
+                               <th>{{property.avilable}}</th>
+                            </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+
+
             </div>
