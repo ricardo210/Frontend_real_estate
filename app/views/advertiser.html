@@ -1,69 +1,84 @@
-<div ng-controller="advertiserController">
-   
+<div ng-controller="UsersController">
+   <div class="topbar animated fadeInLeftBig"></div>
+   <!-- Header Starts -->
+   <div class="navbar-wrapper">
+      <div class="container">
+         <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
+            <div class="container">
+               <div class="navbar-header">
+                  <!-- Logo Starts -->
+                  <a class="navbar-brand"><img src="images/logoTemporal.png" alt="logo" class="principalPageLogoSize">{{$sessionStorage.currentUser.name}}</a>
+                  <!-- #Logo Ends -->
+               </div>
+               <!-- Nav Starts -->
+               <div class="navbar-collapse  collapse">
+                  <ul class="nav navbar-nav navbar-right scroll">
+                     <li ><a ng-click="logout()">Cerrar Sesión</a></li>
+                  </ul>
+               </div>
+               <!-- #Nav Ends -->
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div ng-controller="advertiserController" class="marginAdvertiser">
    <div id="works"  class=" clearfix grid">
-   
       <figure class="effect-oscar fadeIn">
          <img src="../images/portfolio/housePrincipalPage.jpg" class = "principalPageImgSize">
          <figcaption>
             <h2>Casa</h2>
             <p>Descripción casas<br>
-               <a data-toggle="modal" data-target="#modalHouse" data-gallery>Manejo de casas</a>
+               <a data-toggle="modal" data-target="#modalHouse">Manejo de casas</a>
             </p>
          </figcaption>
       </figure>
-   
       <figure class="effect-oscar fadeInUp">
          <img src="../images/portfolio/apartmentsPrincipalPage.jpg" class = "principalPageImgSize">
          <figcaption>
             <h2>Apartamento</h2>
             <p>Descripción apartamentos<br>
-               <a data-toggle="modal" data-target="#modalApartment" data-gallery>Manejo de apartamentos</a>
+               <a data-toggle="modal" data-target="#modalApartment">Manejo de apartamentos</a>
             </p>
          </figcaption>
       </figure>
-   
       <figure class="effect-oscar fadeInUp">
          <img src="../images/portfolio/condominiumsPrincipalPage.jpg" class = "principalPageImgSize">
          <figcaption>
             <h2>Condominio</h2>
             <p>Descripción condominios<br>
-               <a data-toggle="modal" data-target="#modalCondo" data-gallery>Manejo de condominios</a>
+               <a data-toggle="modal" data-target="#modalCondo">Manejo de condominios</a>
             </p>
          </figcaption>
       </figure>
-   
       <figure class="effect-oscar fadeInUp">
          <img src="../images/portfolio/landscapePrincipalPage.jpg" class = "principalPageImgSize">
          <figcaption>
             <h2>Propiedad</h2>
             <p>Descripción Propiedades<br>
-               <a data-toggle="modal" data-target="#modalProperty" data-gallery>Manejo de propiedades</a>
+               <a data-toggle="modal" data-target="#modalProperty">Manejo de propiedades</a>
             </p>
          </figcaption>
       </figure>
-   
       <figure class="effect-oscar fadeInUp">
          <img src="../images/portfolio/localsPrincipalPage.jpg" class = "principalPageImgSize">
          <figcaption>
             <h2>Local</h2>
             <p>Descripción Locales<br>
-               <a data-toggle="modal" data-target="#modalLocal" data-gallery>Manejo de locales</a>
+               <a data-toggle="modal" data-target="#modalLocal">Manejo de locales</a>
             </p>
          </figcaption>
       </figure>
-   
       <figure class="effect-oscar fadeInUp">
          <img src="../images/portfolio/wineriesPrincipalPage.jpg" class = "principalPageImgSize">
          <figcaption>
             <h2>Bodega</h2>
             <p>Descripción Bodegas<br>
-               <a data-toggle="modal" data-target="#modalStorage"  data-gallery>Manejo de bodegas</a>
+               <a data-toggle="modal" data-target="#modalStorage">Manejo de bodegas</a>
             </p>
          </figcaption>
       </figure>
-   
    </div>
-   
    <!-- Modal Casa  -->
    <div id="modalHouse" class="modal fade" role="dialog">
       <div class="modal-dialog2">
@@ -83,54 +98,54 @@
                         <div id="createHouse" class="panel-collapse collapse accordion-container">
                            <table class="add">
                               <tr>
-                                 <th class="td_thEmployee thEmployee">Código</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                              </tr>
-                              <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="nombre"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5"></textarea>
+                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="optradio">Alquiler</label>
-                                    <label><input type="radio" name="optradio">Venta</label>
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
                                  </td>
                               </tr>
                               <tr>
-                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png"/></td>
+                                 <th class="td_thEmployee thEmployee">Anunciante</th>
+                                 <td class="td_thEmployee thEmployee"><input type="text" ng-model="property.advertiser" ng-value={{$sessionStorage.currentUser}} readonly></td>
+                              </tr>
+                              <tr>
+                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postHouse()"/></td>
                               </tr>
                            </table>
                         </div>
                      </div>
                      <div class="panel panel-default panelAdvertiser">
                         <div>
-                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelHouse" class="accordion-titulo">Modificar o eliminar casa</p>
+                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelHouse" class="accordion-titulo" ng-click="getProperty()">Modificar o eliminar casa</p>
                         </div>
                         <div id="modDelHouse" class="panel-collapse collapse accordion-container">
                            <table>
                               <tr>
-                                 <th>Código</th>
                                  <th>Nombre</th>
                                  <th>Dirección</th>
                                  <th>Categoría</th>
+                                 <th>Disponibilidad</th>
                               </tr>
-                              <tr>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
+                              <tr ng-repeat="property in properties |filterWithOr:{type:['casa']}">
+                                 <th>{{property.name}}</th>
+                                 <th>{{property.address}}</th>
+                                 <th>{{property.category}}</th>
+                                 <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyHouse" src="../images/icons/home_info.png"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyHouse" src="../images/icons/home_info.png" ng-click="change(property)"/>
                                  </th>
                                  <th>
-                                    <img class="img2" src="../images/icons/home_remove.png"/>
+                                    <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
                                  </th>
                               </tr>
                            </table>
@@ -142,7 +157,6 @@
          </div>
       </div>
    </div>
-
    <!-- Modal Apartamento  -->
    <div id="modalApartment" class="modal fade" role="dialog">
       <div class="modal-dialog2">
@@ -162,53 +176,55 @@
                         <div id="createApartment" class="panel-collapse collapse accordion-container">
                            <table class="add">
                               <tr>
-                                 <th class="td_thEmployee thEmployee">Código</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                              </tr>
-                              <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="nombre"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5"></textarea>
+                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
-                                 <th class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="optradio">Alquiler</label>
-                                    <label><input type="radio" name="optradio">Venta</label>
-                                 </th>
+                                 <td class="td_thEmployee tdEmployee">
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                                 </td>
                               </tr>
                               <tr>
-                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png"/></td>
+                                 <th class="td_thEmployee thEmployee">Anunciante</th>
+                                 <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                              </tr>
+                              <tr>
+                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postApartment()"/></td>
                               </tr>
                            </table>
                         </div>
                      </div>
                      <div class="panel panel-default panelAdvertiser">
                         <div>
-                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelApartment" class="accordion-titulo">Modificar o eliminar apartamento</p>
+                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelApartment" class="accordion-titulo" ng-click="getProperty()">Modificar o eliminar apartamento</p>
                         </div>
                         <div id="modDelApartment" class="panel-collapse collapse accordion-container">
                            <table>
                               <tr>
-                                 <th>Código</th>
                                  <th>Nombre</th>
                                  <th>Dirección</th>
                                  <th>Categoría</th>
+                                 <th>Disponibilidad</th>
                               </tr>
-                              <tr>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
+                              <tr ng-repeat="property in properties |filter:{type:['Apartamento']}">
+                                 <th>{{property.name}}</th>
+                                 <th>{{property.address}}</th>
+                                 <th>{{property.category}}</th>
+                                 <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyApartment" src="../images/icons/home_info.png"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyApartment" src="../images/icons/home_info.png" ng-click="change(property)"/>
                                  </th>
-                                 <th><img class="img2" src="../images/icons/home_remove.png"/></th>
+                                 <th>
+                                    <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
+                                 </th>
                               </tr>
                            </table>
                         </div>
@@ -219,7 +235,6 @@
          </div>
       </div>
    </div>
-
    <!-- Modal Condominio  -->
    <div id="modalCondo" class="modal fade" role="dialog">
       <div class="modal-dialog2">
@@ -239,53 +254,55 @@
                         <div id="createCondo" class="panel-collapse collapse accordion-container">
                            <table class="add">
                               <tr>
-                                 <th class="td_thEmployee thEmployee">Código</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                              </tr>
-                              <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="nombre"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5"></textarea>
+                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
-                                 <th class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="optradio">Alquiler</label>
-                                    <label><input type="radio" name="optradio">Venta</label>
-                                 </th>
+                                 <td class="td_thEmployee tdEmployee">
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                                 </td>
                               </tr>
                               <tr>
-                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png"/></td>
+                                 <th class="td_thEmployee thEmployee">Anunciante</th>
+                                 <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                              </tr>
+                              <tr>
+                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postCondo()"/></td>
                               </tr>
                            </table>
                         </div>
                      </div>
                      <div class="panel panel-default panelAdvertiser">
                         <div>
-                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelCondo" class="accordion-titulo">Modificar o eliminar condominios</p>
+                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelCondo" class="accordion-titulo" ng-click="getProperty()">Modificar o eliminar condominios</p>
                         </div>
                         <div id="modDelCondo" class="panel-collapse collapse accordion-container">
                            <table>
                               <tr>
-                                 <th>Código</th>
                                  <th>Nombre</th>
                                  <th>Dirección</th>
                                  <th>Categoría</th>
+                                 <th>Disponibilidad</th>
                               </tr>
-                              <tr>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
+                              <tr ng-repeat="property in properties |filter:{type:['Condominio']}">
+                                 <th>{{property.name}}</th>
+                                 <th>{{property.address}}</th>
+                                 <th>{{property.category}}</th>
+                                 <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyCondo" src="../images/icons/home_info.png"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyCondo" src="../images/icons/home_info.png" ng-click="change(property)"/>
                                  </th>
-                                 <th><img class="img2" src="../images/icons/home_remove.png"/></th>
+                                 <th>
+                                    <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
+                                 </th>
                               </tr>
                            </table>
                         </div>
@@ -296,7 +313,6 @@
          </div>
       </div>
    </div>
-   
    <!-- Modal Propriedad  -->
    <div id="modalProperty" class="modal fade" role="dialog">
       <div class="modal-dialog2">
@@ -316,53 +332,55 @@
                         <div id="createProperty" class="panel-collapse collapse accordion-container">
                            <table class="add">
                               <tr>
-                                 <th class="td_thEmployee thEmployee">Código</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                              </tr>
-                              <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="nombre"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5"></textarea>
+                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
-                                 <th class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="optradio">Alquiler</label>
-                                    <label><input type="radio" name="optradio">Venta</label>
-                                 </th>
+                                 <td class="td_thEmployee tdEmployee">
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                                 </td>
                               </tr>
                               <tr>
-                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png"/></td>
+                                 <th class="td_thEmployee thEmployee">Anunciante</th>
+                                 <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                              </tr>
+                              <tr>
+                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postTerrain()"/></td>
                               </tr>
                            </table>
                         </div>
                      </div>
                      <div class="panel panel-default panelAdvertiser">
                         <div>
-                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelProperty" class="accordion-titulo">Modificar o eliminar propiedad</p>
+                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelProperty" class="accordion-titulo" ng-click="getProperty()">Modificar o eliminar propiedad</p>
                         </div>
                         <div id="modDelProperty" class="panel-collapse collapse accordion-container">
                            <table>
                               <tr>
-                                 <th>Código</th>
                                  <th>Nombre</th>
                                  <th>Dirección</th>
                                  <th>Categoría</th>
+                                 <th>Disponibilidad</th>
                               </tr>
-                              <tr>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
+                              <tr ng-repeat="property in properties |filter:{type:['Propiedad']}">
+                                 <th>{{property.name}}</th>
+                                 <th>{{property.address}}</th>
+                                 <th>{{property.category}}</th>
+                                 <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyProperty" src="../images/icons/home_info.png"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyProperty" src="../images/icons/home_info.png" ng-click="change(property)"/>
                                  </th>
-                                 <th><img class="img2" src="../images/icons/home_remove.png"/></th>
+                                 <th>
+                                    <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
+                                 </th>
                               </tr>
                            </table>
                         </div>
@@ -373,7 +391,6 @@
          </div>
       </div>
    </div>
-  
    <!-- Modal Local  -->
    <div id="modalLocal" class="modal fade" role="dialog">
       <div class="modal-dialog2">
@@ -393,53 +410,55 @@
                         <div id="createLocal" class="panel-collapse collapse accordion-container">
                            <table class="add">
                               <tr>
-                                 <th class="td_thEmployee thEmployee">Código</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                              </tr>
-                              <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="nombre"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5"></textarea>
+                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
-                                 <th class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="optradio">Alquiler</label>
-                                    <label><input type="radio" name="optradio">Venta</label>
-                                 </th>
+                                 <td class="td_thEmployee tdEmployee">
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                                 </td>
                               </tr>
                               <tr>
-                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png"/></td>
+                                 <th class="td_thEmployee thEmployee">Anunciante</th>
+                                 <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                              </tr>
+                              <tr>
+                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postLocal()"/></td>
                               </tr>
                            </table>
                         </div>
                      </div>
                      <div class="panel panel-default panelAdvertiser">
                         <div>
-                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelLocal" class="accordion-titulo">Modificar o eliminar local</p>
+                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelLocal" class="accordion-titulo" ng-click="getProperty()">Modificar o eliminar local</p>
                         </div>
                         <div id="modDelLocal" class="panel-collapse collapse accordion-container">
                            <table>
                               <tr>
-                                 <th>Código</th>
                                  <th>Nombre</th>
                                  <th>Dirección</th>
                                  <th>Categoría</th>
+                                 <th>Disponibilidad</th>
                               </tr>
-                              <tr>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
+                              <tr ng-repeat="property in properties |filter:{type:['Local']}">
+                                 <th>{{property.name}}</th>
+                                 <th>{{property.address}}</th>
+                                 <th>{{property.category}}</th>
+                                 <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyLocal" src="../images/icons/home_info.png"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyLocal" src="../images/icons/home_info.png" ng-click="change(property)"/>
                                  </th>
-                                 <th><img class="img2" src="../images/icons/home_remove.png"/></th>
+                                 <th>
+                                    <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
+                                 </th>
                               </tr>
                            </table>
                         </div>
@@ -450,7 +469,6 @@
          </div>
       </div>
    </div>
-   
    <!-- Modal Bodega  -->
    <div id="modalStorage" class="modal fade" role="dialog">
       <div class="modal-dialog2">
@@ -470,53 +488,55 @@
                         <div id="createStorage" class="panel-collapse collapse accordion-container">
                            <table class="add">
                               <tr>
-                                 <th class="td_thEmployee thEmployee">Código</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                              </tr>
-                              <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="nombre"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5"></textarea>
+                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
-                                 <th class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="optradio">Alquiler</label>
-                                    <label><input type="radio" name="optradio">Venta</label>
-                                 </th>
+                                 <td class="td_thEmployee tdEmployee">
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                                 </td>
                               </tr>
                               <tr>
-                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png"/></td>
+                                 <th class="td_thEmployee thEmployee">Anunciante</th>
+                                 <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                              </tr>
+                              <tr>
+                                 <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postStorage()"/></td>
                               </tr>
                            </table>
                         </div>
                      </div>
                      <div class="panel panel-default panelAdvertiser">
                         <div>
-                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelStorage" class="accordion-titulo">Modificar o eliminar bodega</p>
+                           <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelStorage" class="accordion-titulo" ng-click="getProperty()">Modificar o eliminar bodega</p>
                         </div>
                         <div id="modDelStorage" class="panel-collapse collapse accordion-container">
                            <table>
                               <tr>
-                                 <th>Código</th>
                                  <th>Nombre</th>
                                  <th>Dirección</th>
                                  <th>Categoría</th>
+                                 <th>Disponibilidad</th>
                               </tr>
-                              <tr>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
+                              <tr ng-repeat="property in properties |filter:{type:['Bodega']}">
+                                 <th>{{property.name}}</th>
+                                 <th>{{property.address}}</th>
+                                 <th>{{property.category}}</th>
+                                 <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyStorage" src="../images/icons/home_info.png"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyStorage" src="../images/icons/home_info.png" ng-click="change(property)"/>
                                  </th>
-                                 <th><img class="img2" src="../images/icons/home_remove.png"/></th>
+                                 <th>
+                                    <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
+                                 </th>
                               </tr>
                            </table>
                         </div>
@@ -527,9 +547,7 @@
          </div>
       </div>
    </div>
-  
    <!--Modify modals -->
-  
    <!-- Modify House -->
    <div id="modifyHouse" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -541,35 +559,34 @@
             <div class="modal-body">
                <table class="add">
                   <tr>
-                     <th class="td_thEmployee thEmployee">Código</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                  </tr>
-                  <tr>
                      <th class="td_thEmployee thEmployee">Nombre</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Dirección</th>
                      <td class="td_thEmployee tdEmployee">
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                      </td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="optradio">Alquiler</label>
-                        <label><input type="radio" name="optradio">Venta</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
                      </td>
                   </tr>
                   <tr>
-                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/home_info.png"/></td>
+                     <th class="td_thEmployee thEmployee">Anunciante</th>
+                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                  </tr>
+                  <tr>
+                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateHouse(property)"/></td>
                   </tr>
                </table>
             </div>
          </div>
       </div>
    </div>
-   
    <!-- Modify Apartment -->
    <div id="modifyApartment" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -581,35 +598,34 @@
             <div class="modal-body">
                <table class="add">
                   <tr>
-                     <th class="td_thEmployee thEmployee">Código</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                  </tr>
-                  <tr>
                      <th class="td_thEmployee thEmployee">Nombre</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Dirección</th>
                      <td class="td_thEmployee tdEmployee">
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                      </td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="optradio">Alquiler</label>
-                        <label><input type="radio" name="optradio">Venta</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
                      </td>
                   </tr>
                   <tr>
-                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/home_info.png"/></td>
+                     <th class="td_thEmployee thEmployee">Anunciante</th>
+                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                  </tr>
+                  <tr>
+                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateApartment(property)"/></td>
                   </tr>
                </table>
             </div>
          </div>
       </div>
    </div>
-   
    <!-- Modify Condo -->
    <div id="modifyCondo" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -621,35 +637,34 @@
             <div class="modal-body">
                <table class="add">
                   <tr>
-                     <th class="td_thEmployee thEmployee">Código</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                  </tr>
-                  <tr>
                      <th class="td_thEmployee thEmployee">Nombre</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Dirección</th>
                      <td class="td_thEmployee tdEmployee">
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                      </td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="optradio">Alquiler</label>
-                        <label><input type="radio" name="optradio">Venta</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
                      </td>
                   </tr>
                   <tr>
-                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/home_info.png"/></td>
+                     <th class="td_thEmployee thEmployee">Anunciante</th>
+                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                  </tr>
+                  <tr>
+                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateCondo(property)"/></td>
                   </tr>
                </table>
             </div>
          </div>
       </div>
    </div>
-   
    <!-- Modify Property -->
    <div id="modifyProperty" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -661,35 +676,34 @@
             <div class="modal-body">
                <table class="add">
                   <tr>
-                     <th class="td_thEmployee thEmployee">Código</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                  </tr>
-                  <tr>
                      <th class="td_thEmployee thEmployee">Nombre</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Dirección</th>
                      <td class="td_thEmployee tdEmployee">
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                      </td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="optradio">Alquiler</label>
-                        <label><input type="radio" name="optradio">Venta</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
                      </td>
                   </tr>
                   <tr>
-                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/home_info.png"/></td>
+                     <th class="td_thEmployee thEmployee">Anunciante</th>
+                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                  </tr>
+                  <tr>
+                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateTerrain(property)"/></td>
                   </tr>
                </table>
             </div>
          </div>
       </div>
    </div>
-   
    <!-- Modify Local -->
    <div id="modifyLocal" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -701,35 +715,34 @@
             <div class="modal-body">
                <table class="add">
                   <tr>
-                     <th class="td_thEmployee thEmployee">Código</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                  </tr>
-                  <tr>
                      <th class="td_thEmployee thEmployee">Nombre</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Dirección</th>
                      <td class="td_thEmployee tdEmployee">
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                      </td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="optradio">Alquiler</label>
-                        <label><input type="radio" name="optradio">Venta</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
                      </td>
                   </tr>
                   <tr>
-                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/home_info.png"/></td>
+                     <th class="td_thEmployee thEmployee">Anunciante</th>
+                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                  </tr>
+                  <tr>
+                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateLocal(property)"/></td>
                   </tr>
                </table>
             </div>
          </div>
       </div>
    </div>
-   
    <!-- Modify Storage -->
    <div id="modifyStorage" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -741,33 +754,33 @@
             <div class="modal-body">
                <table class="add">
                   <tr>
-                     <th class="td_thEmployee thEmployee">Código</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
-                  </tr>
-                  <tr>
                      <th class="td_thEmployee thEmployee">Nombre</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Dirección</th>
                      <td class="td_thEmployee tdEmployee">
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
                      </td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="optradio">Alquiler</label>
-                        <label><input type="radio" name="optradio">Venta</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
+                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
                      </td>
                   </tr>
                   <tr>
-                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/home_info.png"/></td>
+                     <th class="td_thEmployee thEmployee">Anunciante</th>
+                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                  </tr>
+                  <tr>
+                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateHouse(property)"/></td>
                   </tr>
                </table>
             </div>
          </div>
       </div>
    </div>
-   
 </div>
+
