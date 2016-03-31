@@ -10,6 +10,8 @@ $scope.postUserA = function(){
   $scope.user.scope="admin";
   adminService.PostUsers($scope.user).then(function(response){
       alert("Posted to /admin");
+      clearCAdmin();
+
     }).catch(function(err){
       alert(err.data.error + " " + err.data.message);
     });
@@ -19,6 +21,9 @@ $scope.postUserA = function(){
     $scope.user3.scope="employee";
     adminService.PostUsers($scope.user3).then(function(response){
         alert("Posted to /empleados");
+
+        clear();
+
       }).catch(function(err){
         alert(err.data.error + " " + err.data.message);
       });
@@ -52,8 +57,23 @@ $scope.postUserA = function(){
       });
     }
 
-    $scope.change = function (item) {
-      $scope.user2=item;
+    clear = function(){
+      $('#idAdminHTML').val("");
+      $('#userAdminHTML').val("");
+      $('#passwordAdminHTML').val("");
+      $('#nameAdminHTML').val("");
+      $('#celAdminHTML').val("");
+      $('#numberAdminHTML').val("");
+      $('#emailAdminHTML').val("");
+      $('#direccionAdminHTML').val("");
+    }
+
+    clearCAdmin = function(){
+      $('#idCAdminHtml').val("");
+      $('#userCAdminHtml').val("");
+      $('#passwordCAdminHtml').val("");
+      $('#nameCAdminHtml').val("");
+
     }
 
     $scope.reloadPage = function () {

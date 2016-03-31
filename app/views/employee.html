@@ -39,38 +39,38 @@
           <table class="add">
             <tr>
               <th class="td_thEmployee thEmployee">Código</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="id" id="idEmployeHTML" ng-model="user.code"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Nombre de usuario</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="username" id="userEmployeHTML" ng-model="user.username"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Contraseña</th>
-              <td class="td_thEmployee tdEmployee"><input type="password" name="password"></td>
+              <td class="td_thEmployee tdEmployee"><input type="password" name="password" id="passwordEmployeHTML" ng-model="user.password"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Nombre</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text" id="nameEmployeHTML" ng-model="user.name"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Teléfono</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text" id="phoneEmployeHTML" ng-model="user.phone"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Celular</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text" id="cellEmployeHTML" ng-model="user.cell"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Email</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text" id="emailEmployeHTML" ng-model="user.email"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Dirección</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text" id="addressEmployeHTML" ng-model="user.address"></td>
             </tr>
             <tr>
-              <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/user_add.png"/></td>
+              <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/user_add.png" ng-click="postUser()"/></td>
             </tr>
           </table>
         </div>
@@ -106,7 +106,7 @@
         </div>
       </div>
 
-      <div class="panel panel-default panelAdmin">
+      <div class="panel panel-default panelAdmin" ng-init="getMessage()">
         <div>
           <p data-toggle="collapse" data-parent="#accordion" data-target="#modalContactanos" class="accordion-titulo">Mensajes</p>
         </div>
@@ -117,11 +117,11 @@
               <th>Nombre</th>
               <th>Correo</th>
             </tr>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th><img class="img2" src="../images/icons/mail.png"/></th>
+            <tr ng-repeat="message in messages">
+              <th>{{message.state}}</th>
+              <th>{{message.name}}</th>
+              <th>{{message.email}}</th>
+              <th><img class="img2" src="../images/icons/mail.png" data-target="#messageModal" data-toggle="modal" ng-click="ponerModMensaje(message)"></th>
             </tr>
           </table>
         </div>
@@ -182,5 +182,46 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!--****************************************************************-->
+  <div id="messageModal" class="modal fade" role="dialog">
+     <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+           <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Mensajes Anunciantes</h4>
+           </div>
+           <div class="modal-body">
+              <table class="add">
+                 <tr>
+                    <th class="td_thEmployee thEmployee">Estado</th>
+                    <td class="td_thEmployee tdEmployee"><input type="text" name="codes" ng-model="mensajeRecibido.state"></td>
+                 </tr>
+                 <tr>
+                    <th class="td_thEmployee thEmployee">Nombre</th>
+                    <td class="td_thEmployee tdEmployee"><input type="text" name="usernames" ng-model="mensajeRecibido.name"></td>
+                 </tr>
+                 <tr>
+                    <th class="td_thEmployee thEmployee">Correo Electrónico</th>
+                    <td class="td_thEmployee tdEmployee"><input type="text" name="passwords" ng-model="mensajeRecibido.email"></td>
+                 </tr>
+                 <tr>
+                    <th class="td_thEmployee thEmployee">Número</th>
+                    <td class="td_thEmployee tdEmployee"><input type="text" name="names" ng-model="mensajeRecibido.number"></td>
+                 </tr>
+                 <tr>
+                    <th class="td_thEmployee thEmployee">Mensaje</th>
+                    <td class="td_thEmployee tdEmployee"><input type="text" name="phones" ng-model="mensajeRecibido.message"></td>
+                 </tr>
+
+                 <tr>
+                    <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/check-icon.png" ng-click="updateMessage()"/></td>
+                 </tr>
+              </table>
+           </div>
+        </div>
+     </div>
   </div>
 </div>
