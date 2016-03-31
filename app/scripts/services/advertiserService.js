@@ -1,7 +1,7 @@
 angular.module('RealEstate.Services').factory('advertiserService', ['$http',
 	function($http){
 		$http.defaults.withCredentials = true;
-		var baseUrl = 'http://localhost:8000/';
+		var baseUrl = 'https://proyecto-frontend-2017.herokuapp.com/';
 		return {
 			GetProperties: function(){
 					return $http.get(baseUrl + "v1/properties");
@@ -18,4 +18,3 @@ angular.module('RealEstate.Services').factory('advertiserService', ['$http',
 
 	    };
 }]);
-
