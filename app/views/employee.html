@@ -1,0 +1,227 @@
+<div ng-controller="UsersController">
+  <div class="topbar animated fadeInLeftBig"></div>
+
+  <!-- Header Starts -->
+  <div class="navbar-wrapper">
+    <div class="container">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
+        <div class="container">
+          <div class="navbar-header">
+            <!-- Logo Starts -->
+            <a class="navbar-brand"><img src="images/logoTemporal.png" alt="logo" class="principalPageLogoSize">{{$sessionStorage.currentUser.username}}</a>
+            <!-- #Logo Ends -->
+          </div>
+          <!-- Nav Starts -->
+          <div class="navbar-collapse  collapse">
+            <ul class="nav navbar-nav navbar-right scroll">
+              <li ><a ng-click="logout()">Cerrar Sesión</a></li>
+            </ul>
+          </div>
+          <!-- #Nav Ends -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-controller="employeeController">
+  <div id="container-main" class="container">
+    <br>
+    <br>
+    <br>
+    <div class="panel-group" id="accordion">
+
+      <div class="panel panel-default panelAdmin">
+        <div>
+          <p data-toggle="collapse" data-parent="#accordion" data-target="#createAdvertiser" class="accordion-titulo">Crear anunciante</p>
+        </div>
+        <div id="createAdvertiser" class="panel-collapse collapse accordion-container">
+          <table class="add">
+            <tr>
+              <th class="td_thEmployee thEmployee">Código</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Nombre de usuario</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Contraseña</th>
+              <td class="td_thEmployee tdEmployee"><input type="password" name="password"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Nombre</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Teléfono</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Celular</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Email</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Dirección</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+            </tr>
+            <tr>
+              <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/user_add.png"/></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel panel-default panelAdmin">
+        <div>
+          <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelAdvertiser" class="accordion-titulo">Modificar o eliminar anunciante</p>
+        </div>
+        <div id="modDelAdvertiser" class="panel-collapse collapse accordion-container">
+          <table>
+            <tr>
+              <th>Código</th>
+              <th>Nombre de usuario</th>
+              <th>Nombre</th>
+              <th>Dirección</th>
+              <th>Teléfono</th>
+              <th>Celular</th>
+              <th>Email</th>
+            </tr>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th><img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalEmployee" src="../images/icons/user_edit.png"/></th>
+              <th><img class="img2" src="../images/icons/user_delete.png"/></th>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel panel-default panelAdmin" ng-init="getMessage()">
+        <div>
+          <p data-toggle="collapse" data-parent="#accordion" data-target="#modalContactanos" class="accordion-titulo">Mensajes</p>
+        </div>
+        <div id="modalContactanos" class="panel-collapse collapse accordion-container">
+          <table>
+            <tr>
+              <th>Estado</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+            </tr>
+            <tr ng-repeat="message in messages">
+              <th>{{message.state}}</th>
+              <th>{{message.name}}</th>
+              <th>{{message.email}}</th>
+              <th><img class="img2" src="../images/icons/mail.png" data-target="#messageModal" data-toggle="modal" ng-click="ponerModMensaje(message)"></th>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Modal -->
+  <div id="modalEmployee" class="modal fade" role="dialog">
+
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modificar anunciante</h4>
+        </div>
+
+        <div class="modal-body">
+          <table class="add">
+            <tr>
+              <th class="td_thEmployee thEmployee">Código</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Nombre de usuario</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Contraseña</th>
+              <td class="td_thEmployee tdEmployee"><input type="password" name="password"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Nombre</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Teléfono</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Celular</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Email</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+            </tr>
+            <tr>
+              <th class="td_thEmployee thEmployee">Dirección</th>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+              <tr>
+              </tr>
+              <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/user_edit.png"/></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--****************************************************************-->
+  <div id="messageModal" class="modal fade" role="dialog">
+     <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+           <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Mensajes Anunciantes</h4>
+           </div>
+           <div class="modal-body">
+              <table class="add">
+                 <tr>
+                    <th class="td_thEmployee thEmployee">Estado</th>
+                    <td class="td_thEmployee tdEmployee"><input type="text" name="codes" ng-model="mensajeRecibido.state"></td>
+                 </tr>
+                 <tr>
+                    <th class="td_thEmployee thEmployee">Nombre</th>
+                    <td class="td_thEmployee tdEmployee"><input type="text" name="usernames" ng-model="mensajeRecibido.name"></td>
+                 </tr>
+                 <tr>
+                    <th class="td_thEmployee thEmployee">Correo Electrónico</th>
+                    <td class="td_thEmployee tdEmployee"><input type="text" name="passwords" ng-model="mensajeRecibido.email"></td>
+                 </tr>
+                 <tr>
+                    <th class="td_thEmployee thEmployee">Número</th>
+                    <td class="td_thEmployee tdEmployee"><input type="text" name="names" ng-model="mensajeRecibido.number"></td>
+                 </tr>
+                 <tr>
+                    <th class="td_thEmployee thEmployee">Mensaje</th>
+                    <td class="td_thEmployee tdEmployee"><input type="text" name="phones" ng-model="mensajeRecibido.message"></td>
+                 </tr>
+
+                 <tr>
+                    <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/check-icon.png" ng-click="updateMessage()"/></td>
+                 </tr>
+              </table>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>

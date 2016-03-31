@@ -6,5 +6,11 @@ angular.module('RealEstate.Controllers')
  $scope.changeStateAdmin = function () {
    $state.go('admin');
 }
+$scope.changeStateEmployee = function () {
+   $state.go('employee');
+}
+$scope.changeStateAdvertiser = function () {
+   $state.go('advertiser');
+}
 
   }]);
