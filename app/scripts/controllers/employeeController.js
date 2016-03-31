@@ -58,7 +58,7 @@ angular.module('RealEstate.Controllers')
           $scope.postUser = function(){
             $scope.user.scope="advertiser";
             employeeService.PostUsers($scope.user).then(function(response){
-                alert("Posted to /Employee");
+                alert("Posted to /advertiser");
                 clearEmployee();
               }).catch(function(err){
                 alert(err.data.error + " " + err.data.message);
@@ -70,11 +70,10 @@ angular.module('RealEstate.Controllers')
               $('#userEmployeHTML').val("");
               $('#passwordEmployeHTML').val("");
               $('#nameEmployeHTML').val("");
-              $('#celEmployeHTML').val("");
-              $('#numberEmployeHTML').val("");
+              $('#phoneEmployeHTML').val("");
+              $('#cellEmployeHTML').val("");
               $('#emailEmployeHTML').val("");
-              $('#direccionEmployeHTML').val("");
-
+              $('#addressEmployeHTML').val("");
             }
 
 
