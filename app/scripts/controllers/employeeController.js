@@ -16,16 +16,15 @@ angular.module('RealEstate.Controllers')
 
         $scope.postMessage = function(){
           $scope.message.state="NO LEÍDO";
-          console.log($scope.message);
           employeeService.PostMessages($scope.message).then(function(response){
               alert("Posted to /mail");
+              clear();
             }).catch(function(err){
               alert(err.data.error + " " + err.data.message);
             });
           }
 
           $scope.ponerModMensaje =function(object){
-            console.log(object);
             $scope.mensajeRecibido={
               id : object._id,
               state : object.state,
@@ -46,6 +45,12 @@ angular.module('RealEstate.Controllers')
             });
           }
 
+          clear = function(){
+            $('#nameEmailHtml').val("");
+            $('#emailEmailHtml').val("");
+            $('#numberEmailHtml').val("");
+            $('#messageEmailHtml').val("");
+          }
       $scope.reloadPage = function () {
         window.location.reload(true);
       }
