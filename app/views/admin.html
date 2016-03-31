@@ -1,7 +1,33 @@
+<div ng-controller="UsersController">
+  <div class="topbar animated fadeInLeftBig"></div>
+
+  <!-- Header Starts -->
+  <div class="navbar-wrapper">
+    <div class="container">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
+        <div class="container">
+          <div class="navbar-header">
+            <!-- Logo Starts -->
+            <a class="navbar-brand"><img src="images/logoTemporal.png" alt="logo" class="principalPageLogoSize">{{$sessionStorage.currentUser.name}}</a>
+            <!-- #Logo Ends -->
+          </div>
+          <!-- Nav Starts -->
+          <div class="navbar-collapse  collapse">
+            <ul class="nav navbar-nav navbar-right scroll">
+              <li ><a ng-click="logout()">Cerrar Sesión</a></li>
+            </ul>
+          </div>
+          <!-- #Nav Ends -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div ng-controller="adminController">
 
    <div id="container-main" class="container">
-      <h1>ADMINISTRADOR</h1>
+      <br>
+      <br>
       <br>
 
       <div class="panel-group" id="accordion">
@@ -15,13 +41,15 @@
                   <tr>
                      <th>Código</th>
                      <th>Nombre de usuario</th>
+                     <th>Nombre</th>
                      <th>Contraseña</th>
                   </tr>
                   <tr>
-                     <th><input type="text" name="id"></th>
-                     <th><input type="text" name="username"></th>
-                     <th><input type="password" name="password"></th>
-                     <th><img class="img2" src="../images/icons/user_add.png"/></th>
+                     <th><input type="text" name="id" ng-model="user.code"></th>
+                     <th><input type="text" name="username" ng-model="user.username"></th>
+                     <th><input type="text" name="username" ng-model="user.name"></th>
+                     <th><input type="password" name="password" ng-model="user.password" ></th>
+                     <th><img class="img2" src="../images/icons/user_add.png" ng-click="postUserA()"/></th>
                   </tr>
                </table>
             </div>
@@ -35,38 +63,39 @@
                <table class="add">
                   <tr>
                      <th class="td_thEmployee thEmployee">Código</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="id" ng-model="user3.code"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Nombre de usuario</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="username" ng-model="user3.username"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Contraseña</th>
-                     <td class="td_thEmployee tdEmployee"><input type="password" name="password"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="password" name="password" ng-model="user3.password"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Nombre</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="text" ng-model="user3.name"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Teléfono</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="text" ng-model="user3.phone"></td>
                   </tr>
                   <tr>
+
                      <th class="td_thEmployee thEmployee">Celular</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="text" ng-model="user3.cell"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Email</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="text" ng-model="user3.email"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Dirección</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="text" ng-model="user3.address"></td>
                   </tr>
                   <tr>
-                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/user_add.png"/></td>
+                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/user_add.png"  ng-click="postUserE()"/></td>
                   </tr>
                </table>
             </div>
@@ -74,7 +103,7 @@
 
          <div class="panel panel-default panelAdmin">
             <div>
-               <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelEmployee" class="accordion-titulo">Modificar o eliminar empleados</p>
+               <p data-toggle="collapse" data-parent="#accordion" data-target="#modDelEmployee" class="accordion-titulo" ng-click="getUsers()">Modificar o eliminar empleados</p>
             </div>
             <div id="modDelEmployee" class="panel-collapse collapse accordion-container">
                <table class="add">
@@ -87,23 +116,23 @@
                      <th>Celular</th>
                      <th>Email</th>
                   </tr>
-                  <tr>
-                     <th>{{}}</th>
-                     <th>{{}}</th>
-                     <th>{{}}</th>
-                     <th>{{}}</th>
-                     <th>{{}}</th>
-                     <th>{{}}</th>
-                     <th>{{}}</th>
-                     <th><img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#editModal" src="../images/icons/user_edit.png"/></th>
-                     <th><img class="img2" src="../images/icons/user_delete.png"/></th>
+                  <tr ng-repeat="user in users |filterWithOr:{scope:['employee','client']}">
+                     <th>{{user.code}}</th>
+                     <th>{{user.username}}</th>
+                     <th>{{user.name}}</th>
+                     <th>{{user.address}}</th>
+                     <th>{{user.phone}}</th>
+                     <th>{{user.cell}}</th>
+                     <th>{{user.email}}</th>
+                     <th><img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#editModal" src="../images/icons/user_edit.png" ng-click="change(user)" /></th>
+                     <th><img class="img2" src="../images/icons/user_delete.png" ng-click="deleteUser(user)"/></th>
                   </tr>
                </table>
             </div>
          </div>
 
       </div>
-      
+
    </div>
 
    <!-- Modal -->
@@ -119,38 +148,38 @@
                <table class="add">
                   <tr>
                      <th class="td_thEmployee thEmployee">Código</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="codes" ng-model="user2.code"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Nombre de usuario</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="usernames" ng-model="user2.username"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Contraseña</th>
-                     <td class="td_thEmployee tdEmployee"><input type="password" name="password"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="password" name="passwords" ng-model="user2.password"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Nombre</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="names" ng-model="user2.name"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Teléfono</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="phones" ng-model="user2.phone"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Celular</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="cells" ng-model="user2.cell"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Email</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="emails" ng-model="user2.email"></td>
                   </tr>
                   <tr>
                      <th class="td_thEmployee thEmployee">Dirección</th>
-                     <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+                     <td class="td_thEmployee tdEmployee"><input type="text" name="adresss" ng-model="user2.address"></td>
                   </tr>
                   <tr>
-                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/user_edit.png"/></td>
+                     <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" class="btn btn-default" data-dismiss="modal" src="../images/icons/user_edit.png" ng-click="updateUser(user2)"/></td>
                   </tr>
                </table>
             </div>
