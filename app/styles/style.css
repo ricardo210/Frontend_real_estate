@@ -185,7 +185,9 @@ img { max-width: 100%; }
 .bgImg{
   background-image: url("/assets/img/backgrounds/edificio.jpg");
 }
-
+.modal-dialog3{
+  width: 50%;
+}
 .njc-bc{
   background-color: black;
 }
