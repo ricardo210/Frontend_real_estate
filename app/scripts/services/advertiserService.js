@@ -1,7 +1,7 @@
 angular.module('RealEstate.Services').factory('advertiserService', ['$http',
 	function($http){
 		$http.defaults.withCredentials = true;
-		var baseUrl = 'https://proyecto-frontend-2017.herokuapp.com/';
+		var baseUrl = 'https://proyecto-backend-2017.herokuapp.com/';
 		return {
 			GetProperties: function(){
 					return $http.get(baseUrl + "v1/properties");
