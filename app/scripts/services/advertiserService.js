@@ -9,8 +9,8 @@ angular.module('RealEstate.Services').factory('advertiserService', ['$http',
 				PostProperty: function(payload){
 					return $http.post(baseUrl + "v1/newproperty", payload);
 				},
-				UpdateProperty: function(payload){
-					return $http.post(baseUrl + "v1/updateproperty", payload);
+				UpdateProperty: function(payload,item){
+					return $http.put(baseUrl + "v1/updateproperty/"+item.id, payload);
 				},
 				DeleteProperty: function(payload,id){
 					return $http.delete(baseUrl + "v1/deleteP/"+id, payload);
@@ -18,3 +18,4 @@ angular.module('RealEstate.Services').factory('advertiserService', ['$http',
 
 	    };
 }]);
+

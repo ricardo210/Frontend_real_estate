@@ -1,27 +1,29 @@
 <div ng-controller="UsersController">
-   <div class="topbar animated fadeInLeftBig"></div>
-   <!-- Header Starts -->
-   <div class="navbar-wrapper">
-      <div class="container">
-         <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
-            <div class="container">
-               <div class="navbar-header">
-                  <!-- Logo Starts -->
-                  <a class="navbar-brand"><img src="images/logoTemporal.png" alt="logo" class="principalPageLogoSize">{{$sessionStorage.currentUser.name}}</a>
-                  <!-- #Logo Ends -->
-               </div>
-               <!-- Nav Starts -->
-               <div class="navbar-collapse  collapse">
-                  <ul class="nav navbar-nav navbar-right scroll">
-                     <li ><a ng-click="logout()">Cerrar Sesión</a></li>
-                  </ul>
-               </div>
-               <!-- #Nav Ends -->
-            </div>
-         </div>
+  <div class="topbar animated fadeInLeftBig"></div>
+
+  <!-- Header Starts -->
+  <div class="navbar-wrapper">
+    <div class="container">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
+        <div class="container">
+          <div class="navbar-header">
+            <!-- Logo Starts -->
+            <a class="navbar-brand"><img src="images/logoTemporal.png" alt="logo" class="principalPageLogoSize">{{$sessionStorage.currentUser.name}}</a>
+            <!-- #Logo Ends -->
+          </div>
+          <!-- Nav Starts -->
+          <div class="navbar-collapse  collapse">
+            <ul class="nav navbar-nav navbar-right scroll">
+              <li ><a ng-click="logout()">Cerrar Sesión</a></li>
+            </ul>
+          </div>
+          <!-- #Nav Ends -->
+        </div>
       </div>
-   </div>
+    </div>
+  </div>
 </div>
+
 <div ng-controller="advertiserController" class="marginAdvertiser">
    <div id="works"  class=" clearfix grid">
       <figure class="effect-oscar fadeIn">
@@ -79,6 +81,7 @@
          </figcaption>
       </figure>
    </div>
+
    <!-- Modal Casa  -->
    <div id="modalHouse" class="modal fade" role="dialog">
       <div class="modal-dialog2">
@@ -99,26 +102,24 @@
                            <table class="add">
                               <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" id="name1" ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
+                                    <textarea id="address1" class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                                    <select ng-model="property.category">
+                                       <option value="Alquiler">Alquiler</option>
+                                       <option value="Venta">Venta</option>
+                                    </select>
                                  </td>
                               </tr>
-                              <tr>
-                                 <th class="td_thEmployee thEmployee">Anunciante</th>
-                                 <td class="td_thEmployee thEmployee"><input type="text" ng-model="property.advertiser" ng-value={{$sessionStorage.currentUser}} readonly></td>
-                              </tr>
-                              <tr>
+                             <tr>
                                  <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postHouse()"/></td>
                               </tr>
                            </table>
@@ -142,7 +143,7 @@
                                  <th>{{property.category}}</th>
                                  <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyHouse" src="../images/icons/home_info.png" ng-click="change(property)"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyHouse" src="../images/icons/home_info.png"/>
                                  </th>
                                  <th>
                                     <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
@@ -174,29 +175,27 @@
                            <p data-toggle="collapse" data-parent="#accordion" data-target="#createApartment" class="accordion-titulo">Crear apartamento</p>
                         </div>
                         <div id="createApartment" class="panel-collapse collapse accordion-container">
-                           <table class="add">
+                               <table class="add">
                               <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" id="name2" ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
+                                    <textarea id="address2" class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                                    <select ng-model="property.category">
+                                       <option value="Alquiler">Alquiler</option>
+                                       <option value="Venta">Venta</option>
+                                    </select>
                                  </td>
                               </tr>
-                              <tr>
-                                 <th class="td_thEmployee thEmployee">Anunciante</th>
-                                 <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
-                              </tr>
-                              <tr>
+                             <tr>
                                  <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postApartment()"/></td>
                               </tr>
                            </table>
@@ -214,13 +213,13 @@
                                  <th>Categoría</th>
                                  <th>Disponibilidad</th>
                               </tr>
-                              <tr ng-repeat="property in properties |filter:{type:['Apartamento']}">
+                              <tr ng-repeat="property in properties |filterWithOr:{type:['apartamento']}">
                                  <th>{{property.name}}</th>
                                  <th>{{property.address}}</th>
                                  <th>{{property.category}}</th>
                                  <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyApartment" src="../images/icons/home_info.png" ng-click="change(property)"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyApartment" src="../images/icons/home_info.png"/>
                                  </th>
                                  <th>
                                     <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
@@ -252,29 +251,27 @@
                            <p data-toggle="collapse" data-parent="#accordion" data-target="#createCondo" class="accordion-titulo">Crear condominios</p>
                         </div>
                         <div id="createCondo" class="panel-collapse collapse accordion-container">
-                           <table class="add">
+                               <table class="add">
                               <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" id="name3" ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
+                                    <textarea id="address3" class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                                    <select ng-model="property.category">
+                                       <option value="Alquiler">Alquiler</option>
+                                       <option value="Venta">Venta</option>
+                                    </select>
                                  </td>
                               </tr>
-                              <tr>
-                                 <th class="td_thEmployee thEmployee">Anunciante</th>
-                                 <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
-                              </tr>
-                              <tr>
+                             <tr>
                                  <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postCondo()"/></td>
                               </tr>
                            </table>
@@ -292,13 +289,13 @@
                                  <th>Categoría</th>
                                  <th>Disponibilidad</th>
                               </tr>
-                              <tr ng-repeat="property in properties |filter:{type:['Condominio']}">
+                              <tr ng-repeat="property in properties |filterWithOr:{type:['condominio']}">
                                  <th>{{property.name}}</th>
                                  <th>{{property.address}}</th>
                                  <th>{{property.category}}</th>
                                  <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyCondo" src="../images/icons/home_info.png" ng-click="change(property)"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyCondo" src="../images/icons/home_info.png"/>
                                  </th>
                                  <th>
                                     <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
@@ -330,29 +327,27 @@
                            <p data-toggle="collapse" data-parent="#accordion" data-target="#createProperty" class="accordion-titulo">Crear propiedad</p>
                         </div>
                         <div id="createProperty" class="panel-collapse collapse accordion-container">
-                           <table class="add">
+                               <table class="add">
                               <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" id="name4" ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
+                                    <textarea id="address4" class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                                    <select ng-model="property.category">
+                                       <option value="Alquiler">Alquiler</option>
+                                       <option value="Venta">Venta</option>
+                                    </select>
                                  </td>
                               </tr>
-                              <tr>
-                                 <th class="td_thEmployee thEmployee">Anunciante</th>
-                                 <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
-                              </tr>
-                              <tr>
+                             <tr>
                                  <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postTerrain()"/></td>
                               </tr>
                            </table>
@@ -370,13 +365,13 @@
                                  <th>Categoría</th>
                                  <th>Disponibilidad</th>
                               </tr>
-                              <tr ng-repeat="property in properties |filter:{type:['Propiedad']}">
+                              <tr ng-repeat="property in properties |filterWithOr:{type:['propiedad']}">
                                  <th>{{property.name}}</th>
                                  <th>{{property.address}}</th>
                                  <th>{{property.category}}</th>
                                  <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyProperty" src="../images/icons/home_info.png" ng-click="change(property)"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyProperty" src="../images/icons/home_info.png"/>
                                  </th>
                                  <th>
                                     <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
@@ -408,29 +403,27 @@
                            <p data-toggle="collapse" data-parent="#accordion" data-target="#createLocal" class="accordion-titulo">Crear local</p>
                         </div>
                         <div id="createLocal" class="panel-collapse collapse accordion-container">
-                           <table class="add">
+                               <table class="add">
                               <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" id="name5" ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
+                                    <textarea id="address5" class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                                    <select ng-model="property.category">
+                                       <option value="Alquiler">Alquiler</option>
+                                       <option value="Venta">Venta</option>
+                                    </select>
                                  </td>
                               </tr>
-                              <tr>
-                                 <th class="td_thEmployee thEmployee">Anunciante</th>
-                                 <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
-                              </tr>
-                              <tr>
+                             <tr>
                                  <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postLocal()"/></td>
                               </tr>
                            </table>
@@ -448,13 +441,13 @@
                                  <th>Categoría</th>
                                  <th>Disponibilidad</th>
                               </tr>
-                              <tr ng-repeat="property in properties |filter:{type:['Local']}">
+                              <tr ng-repeat="property in properties |filterWithOr:{type:['local']}">
                                  <th>{{property.name}}</th>
                                  <th>{{property.address}}</th>
                                  <th>{{property.category}}</th>
                                  <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyLocal" src="../images/icons/home_info.png" ng-click="change(property)"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyLocal" src="../images/icons/home_info.png"/>
                                  </th>
                                  <th>
                                     <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
@@ -486,29 +479,27 @@
                            <p data-toggle="collapse" data-parent="#accordion" data-target="#createStorage" class="accordion-titulo">Crear bodega</p>
                         </div>
                         <div id="createStorage" class="panel-collapse collapse accordion-container">
-                           <table class="add">
+                               <table class="add">
                               <tr>
                                  <th class="td_thEmployee thEmployee">Nombre</th>
-                                 <td class="td_thEmployee tdEmployee"><input type="text" name="id"ng-model="property.name"></td>
+                                 <td class="td_thEmployee tdEmployee"><input type="text" id="name6" ng-model="property.name"></td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Dirección</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <textarea class="form-control" rows="5" ng-model="property.address"></textarea>
+                                    <textarea id="address6" class="form-control" rows="5" ng-model="property.address"></textarea>
                                  </td>
                               </tr>
                               <tr>
                                  <th class="td_thEmployee thEmployee">Categoría</th>
                                  <td class="td_thEmployee tdEmployee">
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                                    <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                                    <select ng-model="property.category">
+                                       <option value="Alquiler">Alquiler</option>
+                                       <option value="Venta">Venta</option>
+                                    </select>
                                  </td>
                               </tr>
-                              <tr>
-                                 <th class="td_thEmployee thEmployee">Anunciante</th>
-                                 <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
-                              </tr>
-                              <tr>
+                             <tr>
                                  <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home.png" ng-click="postStorage()"/></td>
                               </tr>
                            </table>
@@ -526,13 +517,13 @@
                                  <th>Categoría</th>
                                  <th>Disponibilidad</th>
                               </tr>
-                              <tr ng-repeat="property in properties |filter:{type:['Bodega']}">
+                              <tr ng-repeat="property in properties |filterWithOr:{type:['bodega']}">
                                  <th>{{property.name}}</th>
                                  <th>{{property.address}}</th>
                                  <th>{{property.category}}</th>
                                  <th>{{property.available}}</th>
                                  <th>
-                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyStorage" src="../images/icons/home_info.png" ng-click="change(property)"/>
+                                    <img class="img2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modifyStorage" src="../images/icons/home_info.png"/>
                                  </th>
                                  <th>
                                     <img class="img2" src="../images/icons/home_remove.png" ng-click="deleteProperty(property)"/>
@@ -571,13 +562,20 @@
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                        <select ng-model="property.category">
+                           <option value="Alquiler">Alquiler</option>
+                           <option value="Venta">Venta</option>
+                        </select>
                      </td>
                   </tr>
                   <tr>
-                     <th class="td_thEmployee thEmployee">Anunciante</th>
-                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                     <td class="td_thEmployee thEmployee">Disponibilidad</td>
+                     <td class="td_thEmployee tdEmployee">
+                        <select ng-model="property.available">
+                           <option value="Disponible">Disponible</option>
+                           <option value="No disponible">No disponible</option>
+                        </select>
+                     </td>
                   </tr>
                   <tr>
                      <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateHouse(property)"/></td>
@@ -610,13 +608,20 @@
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                        <select ng-model="property.category">
+                           <option value="Alquiler">Alquiler</option>
+                           <option value="Venta">Venta</option>
+                        </select>
                      </td>
                   </tr>
-                  <tr>
-                     <th class="td_thEmployee thEmployee">Anunciante</th>
-                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                    <tr>
+                     <td class="td_thEmployee thEmployee">Disponibilidad</td>
+                     <td class="td_thEmployee tdEmployee">
+                        <select ng-model="property.available">
+                           <option value="Disponible">Disponible</option>
+                           <option value="No disponible">No disponible</option>
+                        </select>
+                     </td>
                   </tr>
                   <tr>
                      <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateApartment(property)"/></td>
@@ -649,13 +654,20 @@
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                        <select ng-model="property.category">
+                           <option value="Alquiler">Alquiler</option>
+                           <option value="Venta">Venta</option>
+                        </select>
                      </td>
                   </tr>
-                  <tr>
-                     <th class="td_thEmployee thEmployee">Anunciante</th>
-                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                    <tr>
+                     <td class="td_thEmployee thEmployee">Disponibilidad</td>
+                     <td class="td_thEmployee tdEmployee">
+                        <select ng-model="property.available">
+                           <option value="Disponible">Disponible</option>
+                           <option value="No disponible">No disponible</option>
+                        </select>
+                     </td>
                   </tr>
                   <tr>
                      <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateCondo(property)"/></td>
@@ -688,13 +700,20 @@
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                        <select ng-model="property.category">
+                           <option value="Alquiler">Alquiler</option>
+                           <option value="Venta">Venta</option>
+                        </select>
                      </td>
                   </tr>
-                  <tr>
-                     <th class="td_thEmployee thEmployee">Anunciante</th>
-                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                    <tr>
+                     <td class="td_thEmployee thEmployee">Disponibilidad</td>
+                     <td class="td_thEmployee tdEmployee">
+                        <select ng-model="property.available">
+                           <option value="Disponible">Disponible</option>
+                           <option value="No disponible">No disponible</option>
+                        </select>
+                     </td>
                   </tr>
                   <tr>
                      <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateTerrain(property)"/></td>
@@ -727,13 +746,20 @@
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                        <select ng-model="property.category">
+                           <option value="Alquiler">Alquiler</option>
+                           <option value="Venta">Venta</option>
+                        </select>
                      </td>
                   </tr>
-                  <tr>
-                     <th class="td_thEmployee thEmployee">Anunciante</th>
-                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                    <tr>
+                     <td class="td_thEmployee thEmployee">Disponibilidad</td>
+                     <td class="td_thEmployee tdEmployee">
+                        <select ng-model="property.available">
+                           <option value="Disponible">Disponible</option>
+                           <option value="No disponible">No disponible</option>
+                        </select>
+                     </td>
                   </tr>
                   <tr>
                      <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateLocal(property)"/></td>
@@ -766,13 +792,20 @@
                   <tr>
                      <th class="td_thEmployee thEmployee">Categoría</th>
                      <td class="td_thEmployee tdEmployee">
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Alquiler">Alquiler</label>
-                        <label><input type="radio" name="rbCategory" ng-model="property.category" ng-value="Venta">Venta</label>
+                        <select ng-model="property.category">
+                           <option value="Alquiler">Alquiler</option>
+                           <option value="Venta">Venta</option>
+                        </select>
                      </td>
                   </tr>
-                  <tr>
-                     <th class="td_thEmployee thEmployee">Anunciante</th>
-                     <input type="text" ng-model="property.advertiser" value="{{$sessionStorage.currentUser.name}}" readonly>
+                    <tr>
+                     <td class="td_thEmployee thEmployee">Disponibilidad</td>
+                     <td class="td_thEmployee tdEmployee">
+                        <select ng-model="property.available">
+                           <option value="Disponible">Disponible</option>
+                           <option value="No disponible">No disponible</option>
+                        </select>
+                     </td>
                   </tr>
                   <tr>
                      <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/home_info.png" data-dismiss="modal" ng-click="updateHouse(property)"/></td>
@@ -783,4 +816,3 @@
       </div>
    </div>
 </div>
-
