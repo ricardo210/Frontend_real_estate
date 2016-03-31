@@ -41,13 +41,15 @@
                   <tr>
                      <th>Código</th>
                      <th>Nombre de usuario</th>
+                     <th>Nombre</th>
                      <th>Contraseña</th>
                   </tr>
                   <tr>
                      <th><input type="text" name="id" ng-model="user.code"></th>
                      <th><input type="text" name="username" ng-model="user.username"></th>
+                     <th><input type="text" name="username" ng-model="user.name"></th>
                      <th><input type="password" name="password" ng-model="user.password" ></th>
-                     <th><img class="img2" src="../images/icons/user_add.png" ng-click="postUserA()" /></th>
+                     <th><img class="img2" src="../images/icons/user_add.png" ng-click="postUserA()"/></th>
                   </tr>
                </table>
             </div>
@@ -114,7 +116,7 @@
                      <th>Celular</th>
                      <th>Email</th>
                   </tr>
-                  <tr ng-repeat="user in users">
+                  <tr ng-repeat="user in users |filterWithOr:{scope:['employee','client']}">
                      <th>{{user.code}}</th>
                      <th>{{user.username}}</th>
                      <th>{{user.name}}</th>
