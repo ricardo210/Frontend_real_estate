@@ -39,38 +39,38 @@
           <table class="add">
             <tr>
               <th class="td_thEmployee thEmployee">Código</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="id"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="id" id="idEmployeHTML" ng-model="user.code"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Nombre de usuario</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="username"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="username" id="userEmployeHTML" ng-model="user.username"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Contraseña</th>
-              <td class="td_thEmployee tdEmployee"><input type="password" name="password"></td>
+              <td class="td_thEmployee tdEmployee"><input type="password" name="password" id="passwordEmployeHTML" ng-model="user.password"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Nombre</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text" id="nameEmployeHTML" ng-model="user.name"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Teléfono</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text" id="phoneEmployeHTML" ng-model="user.phone"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Celular</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text" id="cellEmployeHTML" ng-model="user.cell"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Email</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text" id="emailEmployeHTML" ng-model="user.email"></td>
             </tr>
             <tr>
               <th class="td_thEmployee thEmployee">Dirección</th>
-              <td class="td_thEmployee tdEmployee"><input type="text" name="text"></td>
+              <td class="td_thEmployee tdEmployee"><input type="text" name="text" id="addressEmployeHTML" ng-model="user.address"></td>
             </tr>
             <tr>
-              <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/user_add.png"/></td>
+              <td class="td_thEmployee tdEmployee" colspan="2"><img class="img2" src="../images/icons/user_add.png" ng-click="postUser()"/></td>
             </tr>
           </table>
         </div>

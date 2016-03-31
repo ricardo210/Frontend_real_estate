@@ -5,6 +5,9 @@ angular.module('RealEstate.Controllers')
     $scope.messages = [];
     $scope.message = {};
     $scope.temp = {};
+    $scope.title = "Usuarios"
+    $scope.users = [];
+    $scope.user = {};
 
         $scope.getMessage = function(){
           employeeService.GetMessages().then(function(response){
@@ -16,16 +19,15 @@ angular.module('RealEstate.Controllers')
 
         $scope.postMessage = function(){
           $scope.message.state="NO LEÍDO";
-          console.log($scope.message);
           employeeService.PostMessages($scope.message).then(function(response){
               alert("Posted to /mail");
+              clear();
             }).catch(function(err){
               alert(err.data.error + " " + err.data.message);
             });
           }
 
           $scope.ponerModMensaje =function(object){
-            console.log(object);
             $scope.mensajeRecibido={
               id : object._id,
               state : object.state,
@@ -45,6 +47,35 @@ angular.module('RealEstate.Controllers')
               alert(err.data.error + " " + err.data.message);
             });
           }
+
+          clear = function(){
+            $('#nameEmailHtml').val("");
+            $('#emailEmailHtml').val("");
+            $('#numberEmailHtml').val("");
+            $('#messageEmailHtml').val("");
+          }
+
+          $scope.postUser = function(){
+            $scope.user.scope="advertiser";
+            employeeService.PostUsers($scope.user).then(function(response){
+                alert("Posted to /advertiser");
+                clearEmployee();
+              }).catch(function(err){
+                alert(err.data.error + " " + err.data.message);
+              });
+            }
+
+            clearEmployee = function(){
+              $('#idEmployeHTML').val("");
+              $('#userEmployeHTML').val("");
+              $('#passwordEmployeHTML').val("");
+              $('#nameEmployeHTML').val("");
+              $('#phoneEmployeHTML').val("");
+              $('#cellEmployeHTML').val("");
+              $('#emailEmployeHTML').val("");
+              $('#addressEmployeHTML').val("");
+            }
+
 
       $scope.reloadPage = function () {
         window.location.reload(true);

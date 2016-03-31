@@ -15,10 +15,8 @@ angular.module('RealEstate.Controllers')
       }
 
       $scope.login = function(user){
-        console.log("entro a login")
         authService.Login(user).then(function(response){
           $sessionStorage.currentUser = response.data;
-          console.log(response.data);
           $scope.user = {};
           if ($sessionStorage.currentUser.scope[0]==="admin") {
             $scope.goAdmin();
