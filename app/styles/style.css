@@ -191,3 +191,12 @@ img { max-width: 100%; }
 .njc-bc{
   background-color: black;
 }
+
+.modal-dialog2 {
+  width: 800px;
+  margin: 30px auto;
+}
+.marginAdvertiser {
+ margin-top: 5%;
+ margin-bottom: 8%;
+}

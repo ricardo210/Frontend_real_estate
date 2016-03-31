@@ -125,3 +125,11 @@ img.img2 {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
+.panelAdvertiser {
+    margin-bottom: 20px;
+    background-color: white;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
