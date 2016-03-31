@@ -11,8 +11,8 @@ angular.module('RealEstate.Services').factory('employeeService', ['$http',
 				return $http.post(baseUrl + "v1/send-message", payload);
 			},
 
-			ReadMessages: function(payload){
-				console.log(payload + "server");
+			UpdateMessages: function(payload){
+				console.log(payload);
 				return $http.post(baseUrl + "v1/read-message", payload);
 			}
 	    };

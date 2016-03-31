@@ -37,11 +37,10 @@ angular.module('RealEstate.Controllers')
             $scope.temp=$scope.mensajeRecibido;
           }
 
-          $scope.readMessage = function(){
-            console.log($scope.temp+ "aqui");
-            employeeService.ReadMessages($scope.temp).then(function(response){
+          $scope.updateMessage = function(){
+            employeeService.UpdateMessages($scope.temp).then(function(response){
               alert("message read completed");
-              $scope.getMessages();
+              $scope.getMessage();
             }).catch(function(err){
               alert(err.data.error + " " + err.data.message);
             });
