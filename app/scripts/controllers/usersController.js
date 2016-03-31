@@ -24,6 +24,8 @@ angular.module('RealEstate.Controllers')
             $scope.goAdmin();
           }else if($sessionStorage.currentUser.scope[0]==="employee"){
             $scope.goEmployee();
+          }else if($sessionStorage.currentUser.scope[0]==="advertiser"){
+            $scope.goAdvertiser();
           }
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
@@ -36,6 +38,10 @@ angular.module('RealEstate.Controllers')
 
       $scope.goEmployee =function(){
         $state.go("employee")
+      }
+
+      $scope.goAdvertiser =function(){
+        $state.go("advertiser")
       }
 
   }]);
